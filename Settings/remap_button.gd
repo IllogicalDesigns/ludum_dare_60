@@ -1,0 +1,39 @@
+# remap_button.gd
+extends Button
+class_name RemapButton
+
+signal key_remapped(action: String, event: InputEvent)
+
+@export var action: String
+
+func _init():
+	toggle_mode = true
+	theme_type_variation = "RemapButton"
+
+func _ready():
+	set_process_unhandled_input(false)
+	update_key_text()
+
+func _toggled(button_pressed):
+	set_process_unhandled_input(button_pressed)
+	if button_pressed:
+		text = "... Awaiting Input ..."
+		release_focus()
+	else:
+		update_key_text()
+		grab_focus()
+
+func _unhandled_input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		if event.pressed:
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, event)
+			key_remapped.emit(action, event)
+			button_pressed = false
+
+func update_key_text():
+	var events = InputMap.action_get_events(action)
+	if events.size() > 0:
+		text = events[0].as_text()
+	else:
+		text = "Unbound"

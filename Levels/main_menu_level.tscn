@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c35b26a3g70si"]
+
+[ext_resource type="PackedScene" uid="uid://c355ncfebuoba" path="res://UI/main_menu_ui.tscn" id="1_ymxbu"]
+[ext_resource type="PackedScene" uid="uid://dr67ndkuhf1py" path="res://UI/settings/settings_ui.tscn" id="2_g7pgx"]
+
+[node name="MainMenu" type="Node3D" unique_id=1496834199]
+
+[node name="MainMenu" parent="." unique_id=716984955 instance=ExtResource("1_ymxbu")]
+
+[node name="Settings" parent="." unique_id=229792188 instance=ExtResource("2_g7pgx")]
+visible = false
+
+[connection signal="open_settings" from="MainMenu" to="MainMenu" method="hide"]
+[connection signal="open_settings" from="MainMenu" to="Settings" method="show"]
+[connection signal="on_back" from="Settings" to="MainMenu" method="show"]
+[connection signal="on_back" from="Settings" to="Settings" method="hide"]

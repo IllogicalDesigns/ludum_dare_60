@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://rrpoo40p13w3"]
+
+[ext_resource type="Script" uid="uid://j6sjbbjrwciu" path="res://UI/settings/slide_control_value.gd" id="1_oqh4m"]
+[ext_resource type="Script" uid="uid://bocvnypg6ihyy" path="res://Settings/settings_binder.gd" id="1_xqkjy"]
+
+[node name="SliderControl" type="HBoxContainer" unique_id=197360739]
+
+[node name="Label" type="Label" parent="." unique_id=753769345]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "label"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="." unique_id=638439807]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="SettingsBinder" type="Node" parent="HSlider" unique_id=1906472156]
+script = ExtResource("1_xqkjy")
+default_value = 0.0
+metadata/_custom_type_script = "uid://bocvnypg6ihyy"
+
+[node name="value" type="Label" parent="." unique_id=1796154170 node_paths=PackedStringArray("h_slider")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0.0"
+horizontal_alignment = 1
+script = ExtResource("1_oqh4m")
+h_slider = NodePath("../HSlider")

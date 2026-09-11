@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://p30j8vvlc5o2"]
+
+[ext_resource type="AudioStream" uid="uid://b0grpoly4wugc" path="res://UI/button_pressed.mp3" id="1_iydwj"]
+[ext_resource type="AudioStream" uid="uid://bka36scv2hymm" path="res://UI/button_hovered.mp3" id="2_8ehgl"]
+
+[node name="PrefabButton" type="Button" unique_id=879943139]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Pressed" type="AudioStreamPlayer" parent="." unique_id=499541865]
+stream = ExtResource("1_iydwj")
+
+[node name="Hovered" type="AudioStreamPlayer" parent="." unique_id=1085408880]
+stream = ExtResource("2_8ehgl")
+
+[connection signal="focus_entered" from="." to="Hovered" method="play"]
+[connection signal="mouse_entered" from="." to="Hovered" method="play"]
+[connection signal="pressed" from="." to="Pressed" method="play"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c4eenij5krc51"]
+
+[ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="1_3mhv4"]
+[ext_resource type="Script" uid="uid://de64334ggky3r" path="res://UI/load_level.gd" id="2_rf6l5"]
+
+[node name="Level_1" type="Node3D" unique_id=1801170178]
+
+[node name="Control" type="Control" parent="." unique_id=1370428166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=817896240]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -55.0
+offset_right = 122.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1753725479]
+layout_mode = 2
+text = "Level 1"
+
+[node name="BackButton" parent="Control/VBoxContainer" unique_id=879943139 instance=ExtResource("1_3mhv4")]
+layout_mode = 2
+text = "Back"
+
+[node name="LoadLevel" type="Node" parent="Control/VBoxContainer/BackButton" unique_id=2095375919]
+script = ExtResource("2_rf6l5")
+level_to_load = "uid://c35b26a3g70si"

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dx1gw7cqdn3ag"]
+
+[ext_resource type="Script" uid="uid://dl1kq1wlyv3w6" path="res://Settings/user_settings.gd" id="1_r7x14"]
+[ext_resource type="Script" uid="uid://dq1o3xr1g8ls0" path="res://Settings/scene/load_volume.gd" id="2_duq4m"]
+
+[node name="UserSettings" type="Node" unique_id=1617760608]
+script = ExtResource("1_r7x14")
+
+[node name="load_volume" type="Node" parent="." unique_id=2110330395]
+script = ExtResource("2_duq4m")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dr67ndkuhf1py"]
+
+[ext_resource type="Script" uid="uid://b2rcv77uykq5k" path="res://UI/settings/settings.gd" id="1_h3fc4"]
+[ext_resource type="PackedScene" uid="uid://rrpoo40p13w3" path="res://UI/settings/slider_control.tscn" id="2_asuuf"]
+[ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="3_k18wy"]
+
+[node name="Settings" type="Control" unique_id=229792188]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3fc4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=585728334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -155.0
+offset_right = 172.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SliderControl" parent="VBoxContainer" unique_id=197360739 instance=ExtResource("2_asuuf")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/SliderControl" index="0" unique_id=753769345]
+text = "Volume"
+
+[node name="SettingsBinder" parent="VBoxContainer/SliderControl/HSlider" parent_id_path=PackedInt32Array(197360739, 638439807) index="0" unique_id=1906472156]
+default_value = 0.8
+
+[node name="BackButton" parent="VBoxContainer" unique_id=879943139 instance=ExtResource("3_k18wy")]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="VBoxContainer/SliderControl"]
