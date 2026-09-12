@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 		else: pause()
 
 func pause() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	ensure_main_pause_screen()
 	
 	get_tree().paused = true

@@ -27,14 +27,44 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SliderControl" parent="VBoxContainer" unique_id=197360739 instance=ExtResource("2_asuuf")]
+[node name="Volume" parent="VBoxContainer" unique_id=197360739 instance=ExtResource("2_asuuf")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/SliderControl" index="0" unique_id=753769345]
+[node name="Label" parent="VBoxContainer/Volume" index="0" unique_id=753769345]
 text = "Volume"
 
-[node name="SettingsBinder" parent="VBoxContainer/SliderControl/HSlider" parent_id_path=PackedInt32Array(197360739, 638439807) index="0" unique_id=1906472156]
+[node name="SettingsBinder" parent="VBoxContainer/Volume/HSlider" parent_id_path=PackedInt32Array(197360739, 638439807) index="0" unique_id=1906472156]
 default_value = 0.8
+
+[node name="Sensitivity" parent="VBoxContainer" unique_id=215388365 instance=ExtResource("2_asuuf")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Sensitivity" index="0" unique_id=753769345]
+text = "Sensitivity"
+
+[node name="HSlider" parent="VBoxContainer/Sensitivity" index="1" unique_id=638439807]
+min_value = 0.01
+value = 0.01
+
+[node name="SettingsBinder" parent="VBoxContainer/Sensitivity/HSlider" index="0" unique_id=1906472156]
+setting = 7
+default_value = 0.2
+
+[node name="FOV" parent="VBoxContainer" unique_id=258341 instance=ExtResource("2_asuuf")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/FOV" index="0" unique_id=753769345]
+text = "FOV"
+
+[node name="HSlider" parent="VBoxContainer/FOV" index="1" unique_id=638439807]
+min_value = 50.0
+max_value = 120.0
+step = 1.0
+value = 85.0
+
+[node name="SettingsBinder" parent="VBoxContainer/FOV/HSlider" index="0" unique_id=1906472156]
+setting = 10
+default_value = 85.0
 
 [node name="BackButton" parent="VBoxContainer" unique_id=879943139 instance=ExtResource("3_k18wy")]
 layout_mode = 2
@@ -42,4 +72,6 @@ text = "Back"
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 
-[editable path="VBoxContainer/SliderControl"]
+[editable path="VBoxContainer/Volume"]
+[editable path="VBoxContainer/Sensitivity"]
+[editable path="VBoxContainer/FOV"]

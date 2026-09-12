@@ -5,6 +5,7 @@ extends Control
 signal transition_finished
 
 func change_scene_to_file(target: String) -> void:
+	get_tree().paused = false
 	animation_player.play("fade_in")
 	await animation_player.animation_finished
 	get_tree().change_scene_to_file(target)
@@ -14,6 +15,7 @@ func change_scene_to_file(target: String) -> void:
 	
 # change_scene_to_packed is the used one
 func change_scene_to_packed(target: PackedScene) -> void:
+	get_tree().paused = false
 	if target:
 		animation_player.play("fade_in")
 		await animation_player.animation_finished

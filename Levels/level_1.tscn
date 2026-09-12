@@ -1,44 +1,32 @@
 [gd_scene format=3 uid="uid://c4eenij5krc51"]
 
-[ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="1_3mhv4"]
-[ext_resource type="Script" uid="uid://de64334ggky3r" path="res://UI/load_level.gd" id="2_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://c7slewqv4igj" path="res://Levels/level-1/world-model.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://cn1yhwqivrnm2" path="res://UI/pause/pause.tscn" id="3_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://bsbmmiwngfle" path="res://FPSController/fps_player.tscn" id="3_rf6l5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dilhk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3mhv4"]
+sky_material = SubResource("ProceduralSkyMaterial_dilhk")
+
+[sub_resource type="Environment" id="Environment_rf6l5"]
+background_mode = 2
+sky = SubResource("Sky_3mhv4")
+glow_enabled = true
 
 [node name="Level_1" type="Node3D" unique_id=1801170178]
 
-[node name="Control" type="Control" parent="." unique_id=1370428166]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=682213987]
+environment = SubResource("Environment_rf6l5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=817896240]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -122.0
-offset_top = -55.0
-offset_right = 122.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1753725479]
-layout_mode = 2
-text = "Level 1"
-
-[node name="BackButton" parent="Control/VBoxContainer" unique_id=879943139 instance=ExtResource("1_3mhv4")]
-layout_mode = 2
-text = "Back"
-
-[node name="LoadLevel" type="Node" parent="Control/VBoxContainer/BackButton" unique_id=2095375919]
-script = ExtResource("2_rf6l5")
-level_to_load = "uid://c35b26a3g70si"
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=131985457]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Pause" parent="." unique_id=969108847 instance=ExtResource("3_3mhv4")]
+
+[node name="World" parent="." unique_id=1656787649 instance=ExtResource("2_dilhk")]
+
+[node name="Player" parent="." unique_id=1264208434 instance=ExtResource("3_rf6l5")]

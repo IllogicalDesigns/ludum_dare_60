@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="1_4uepe"]
 [ext_resource type="Script" uid="uid://bsxg6r4hva2n8" path="res://UI/pause/pause.gd" id="1_6xmdl"]
 [ext_resource type="PackedScene" uid="uid://dr67ndkuhf1py" path="res://UI/settings/settings_ui.tscn" id="2_6xmdl"]
+[ext_resource type="Script" uid="uid://de64334ggky3r" path="res://UI/load_level.gd" id="3_wevw8"]
 
 [node name="Pause" type="Control" unique_id=969108847 node_paths=PackedStringArray("settings", "pause_screen")]
 process_mode = 3
@@ -40,6 +41,14 @@ text = "resume"
 [node name="SettingsButton" parent="VBoxContainer" unique_id=1147058085 instance=ExtResource("1_4uepe")]
 layout_mode = 2
 text = "settings"
+
+[node name="MainMenuButton" parent="VBoxContainer" unique_id=579624815 instance=ExtResource("1_4uepe")]
+layout_mode = 2
+text = "main menu"
+
+[node name="LoadLevel" type="Node" parent="VBoxContainer/MainMenuButton" unique_id=1345656487]
+script = ExtResource("3_wevw8")
+level_to_load = "uid://c35b26a3g70si"
 
 [node name="Settings" parent="." unique_id=229792188 instance=ExtResource("2_6xmdl")]
 visible = false

@@ -1,7 +1,9 @@
 extends Node
 
 @onready var button: Button = $".."
-@export var level_to_load: String
+
+@export_file("*.tscn")
+var level_to_load: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

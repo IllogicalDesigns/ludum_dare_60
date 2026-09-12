@@ -4,6 +4,7 @@ extends Label
 
 func _ready() -> void:
 	update_text()
+	h_slider.value_changed.connect(_on_h_slider_value_changed)
 
 func _on_h_slider_value_changed(value: float) -> void:
 	update_text()
