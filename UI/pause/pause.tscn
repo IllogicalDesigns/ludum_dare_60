@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cn1yhwqivrnm2"]
+
+[ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="1_4uepe"]
+[ext_resource type="Script" uid="uid://bsxg6r4hva2n8" path="res://UI/pause/pause.gd" id="1_6xmdl"]
+[ext_resource type="PackedScene" uid="uid://dr67ndkuhf1py" path="res://UI/settings/settings_ui.tscn" id="2_6xmdl"]
+
+[node name="Pause" type="Control" unique_id=969108847 node_paths=PackedStringArray("settings", "pause_screen")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xmdl")
+settings = NodePath("Settings")
+pause_screen = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1155153770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -120.0
+offset_right = 119.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2128261442]
+layout_mode = 2
+
+[node name="ResumeButton" parent="VBoxContainer" unique_id=879943139 instance=ExtResource("1_4uepe")]
+layout_mode = 2
+text = "resume"
+
+[node name="SettingsButton" parent="VBoxContainer" unique_id=1147058085 instance=ExtResource("1_4uepe")]
+layout_mode = 2
+text = "settings"
+
+[node name="Settings" parent="." unique_id=229792188 instance=ExtResource("2_6xmdl")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="VBoxContainer" method="hide"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="Settings" method="show"]
+[connection signal="on_back" from="Settings" to="VBoxContainer" method="show"]
+[connection signal="on_back" from="Settings" to="Settings" method="hide"]
