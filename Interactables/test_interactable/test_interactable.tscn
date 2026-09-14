@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://jf5wleskcunj"]
+
+[ext_resource type="PackedScene" uid="uid://dl2ywv88k8anr" path="res://Interactables/UI/interactable_ui.tscn" id="1_erym7"]
+[ext_resource type="Script" uid="uid://dt1g0a1ct4jko" path="res://Interactables/interactable.gd" id="1_g7sos"]
+[ext_resource type="Script" uid="uid://bg3tvg2gjm5ho" path="res://Interactables/test_interactable/on_interact.gd" id="3_1w0ir"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_616h8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_616h8"]
+
+[sub_resource type="Animation" id="Animation_1w0ir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0wyf8"]
+resource_name = "play"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 6.2831855, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fjw1"]
+_data = {
+&"RESET": SubResource("Animation_1w0ir"),
+&"play": SubResource("Animation_0wyf8")
+}
+
+[node name="TestInteractable" type="Node3D" unique_id=584702641]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=267982026]
+collision_layer = 2
+script = ExtResource("1_g7sos")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=454695707]
+shape = SubResource("BoxShape3D_616h8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1916113641]
+mesh = SubResource("BoxMesh_616h8")
+
+[node name="InteractableUI" parent="StaticBody3D" unique_id=1228178908 node_paths=PackedStringArray("interactable") instance=ExtResource("1_erym7")]
+hide_on_interact = false
+interactable = NodePath("..")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1828498173]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1304981317]
+shape = SubResource("BoxShape3D_616h8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=295276696]
+libraries/ = SubResource("AnimationLibrary_3fjw1")
+
+[node name="OnInteract" type="Node" parent="." unique_id=1550054421]
+script = ExtResource("3_1w0ir")
+
+[editable path="StaticBody3D/InteractableUI"]

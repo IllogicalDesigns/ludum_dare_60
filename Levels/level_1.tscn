@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c7slewqv4igj" path="res://Levels/level-1/world-model.tscn" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://cn1yhwqivrnm2" path="res://UI/pause/pause.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://bsbmmiwngfle" path="res://FPSController/fps_player.tscn" id="3_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://jf5wleskcunj" path="res://Interactables/test_interactable/test_interactable.tscn" id="4_rf6l5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dilhk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,3 +31,6 @@ shadow_enabled = true
 [node name="World" parent="." unique_id=1656787649 instance=ExtResource("2_dilhk")]
 
 [node name="Player" parent="." unique_id=1264208434 instance=ExtResource("3_rf6l5")]
+
+[node name="TestInteractable" parent="." unique_id=584702641 instance=ExtResource("4_rf6l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)

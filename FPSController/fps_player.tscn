@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://emtcgm0lt63d" path="res://FPSController/fps_player.gd" id="1_ft1b0"]
 [ext_resource type="Script" uid="uid://wu1ux8plxr40" path="res://Settings/scene/load_fov.gd" id="2_6n6le"]
+[ext_resource type="PackedScene" uid="uid://dvyr3s7k65ypy" path="res://Interactables/interaction_ray.tscn" id="3_7xp23"]
 [ext_resource type="Script" uid="uid://cf57k85pflnnr" path="res://FPSController/load_mouse_sens.gd" id="3_tv2mk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_616h8"]
@@ -19,6 +20,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Load_fov" type="Node" parent="Camera3D" unique_id=63212164]
 script = ExtResource("2_6n6le")
+
+[node name="interaction_ray" parent="Camera3D" unique_id=2058209793 instance=ExtResource("3_7xp23")]
 
 [node name="Load_mouse_sens" type="Node" parent="." unique_id=582157068]
 script = ExtResource("3_tv2mk")
