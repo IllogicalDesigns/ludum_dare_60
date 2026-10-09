@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://p30j8vvlc5o2" path="res://UI/prefab_button.tscn" id="1_b0hjo"]
 [ext_resource type="Script" uid="uid://de64334ggky3r" path="res://UI/load_level.gd" id="2_ill4e"]
+[ext_resource type="Script" uid="uid://bqoku78up53td" path="res://UI/quit.gd" id="3_31l14"]
 
 [sub_resource type="GDScript" id="GDScript_b0hjo"]
 script/source = "extends Control
@@ -50,5 +51,12 @@ level_to_load = "uid://c4eenij5krc51"
 [node name="SettingsButton" parent="VBoxContainer" unique_id=1818573066 instance=ExtResource("1_b0hjo")]
 layout_mode = 2
 text = "Settings"
+
+[node name="QuitButton" parent="VBoxContainer" unique_id=589817429 instance=ExtResource("1_b0hjo")]
+layout_mode = 2
+text = "Quit"
+
+[node name="Quit" type="Node" parent="VBoxContainer/QuitButton" unique_id=339061419]
+script = ExtResource("3_31l14")
 
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

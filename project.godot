@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="imminent-doom-godot-wild-jam-97"
+config/name="template"
 run/main_scene="uid://c35b26a3g70si"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
